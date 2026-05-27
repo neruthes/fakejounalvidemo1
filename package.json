@@ -1,0 +1,9 @@
+{
+    "fontsdep": {
+        "dest": "_fontsdir",
+        "list": [
+            "https://github.com/lettersoup/Sofia-Sans/raw/refs/heads/master/fonts/otf/Condensed/SofiaSansCondensed-{{RBI}}.otf",
+            "https://github.com/jpt/barlow/archive/refs/tags/1.422.zip"
+        ]
+    }
+}
