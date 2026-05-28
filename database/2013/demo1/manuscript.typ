@@ -44,7 +44,6 @@
 
 
 
-
 = Abstract
 
 The increasing deployment of autonomous sensing systems in urban and industrial environments has motivated renewed interest in distributed morphological computation. This thesis investigates how local geometric adaptation in sensor arrays may improve resilience, energy efficiency, and environmental observability. While most prior architectures rely on centralized coordination, the present work evaluates decentralized control laws inspired by swarm intelligence and adaptive topology optimization.
@@ -54,6 +53,12 @@ A simulated experimental platform was constructed using heterogeneous node agent
 The document intentionally contains diverse structures including equations, code blocks, tables, diagrams, quotations, and references in order to stress-test advanced typesetting workflows in Typst.
 
 // #outline()
+
+#show: enable_heading_numbering
+
+#show: mode_2col
+
+
 
 = Introduction
 
@@ -98,7 +103,7 @@ Previous researchers explored several approaches:
 #table(
   columns: 4,
   inset: 8pt,
-  stroke: .6pt,
+  stroke: 0.6pt,
   align: center,
 
   [Author], [Year], [Approach], [Limitation],

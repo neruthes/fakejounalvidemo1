@@ -5,6 +5,7 @@ title = "Fake Journal Typesetting Demo Dummy Article"
 
 [editor]
 obj_id = "2013.3170411"
+category_label = "Neuroscience"
 stage = 1
 date_manuscript = 2013-05-28
 date_review = 2013-05-28
