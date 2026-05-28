@@ -1,14 +1,12 @@
-#import "/template/preprint-content-v1.H.typ": *
+#import "/template/single-v1.H.typ": *
 
 #import "@preview/cetz:0.3.2": canvas, draw
 #import "@preview/tablex:0.0.9": tablex
 
 
-#show: make_preprint
+#show: make_single
 
 #make_title(toml("info.toml"))
-
-
 
 
 
@@ -147,12 +145,17 @@ Each node executes four primary stages:
 #table(
   columns: (auto, 3fr),
   
-  [Stage], [Description],
+  [Stage],
+  [Description],
   
-  [Acquisition], [Environmental data collection from local sensors],
-  [Normalization], [Signal conditioning and noise reduction],
-  [Consensus], [Exchange of state vectors with neighboring nodes],
-  [Adaptation], [Topology restructuring and route recalculation],
+  [Acquisition],
+  [Environmental data collection from local sensors],
+  [Normalization],
+  [Signal conditioning and noise reduction],
+  [Consensus],
+  [Exchange of state vectors with neighboring nodes],
+  [Adaptation],
+  [Topology restructuring and route recalculation],
 )
 
 = Implementation

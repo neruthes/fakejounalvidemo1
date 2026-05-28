@@ -5,19 +5,19 @@
 
 
 #let make_title(input_toml) = {
-  place(top + center, dy: -8mm, text(
-    size: 15pt,
-    font: __font_sans,
-    weight: 600,
-    fill: gray.transparentize(55%),
-  )[WORKING MANUSCRIPT])
-
   let dataobj = input_toml
+
   set text(number-width: "tabular")
   set par(first-line-indent: 0em)
-
   block(width: 100%, spacing: 15mm, [
     #set text(font: __font_sans, size: 10pt)
+    *FAKE JOURNAL PREPRINT*
+    #h(1fr)
+    #dataobj.editor.obj_id
+
+    #text(tracking: 0.11em, weight: 600, fill: fake__brand_color.darken(20%), upper(dataobj.editor.category_label))
+
+    // #block(width: 100%, height: 0.44pt, fill: gray)
   ])
 
   block(width: 100%, spacing: 10mm, [
@@ -58,7 +58,7 @@
         #text(size: 9pt, fill: gray.darken(70%), [
           #super(key) #aff.organization, #aff.city, #aff.country
         ])
-        #v(0.1mm)
+        #v(0.01mm)
       ]
     })
     // #v(5mm)
@@ -81,13 +81,15 @@
   doc
 }
 
-#let make_preprint(doc) = {
+#let make_single(doc) = {
   set page(paper: "a4", margin: (top: 15mm, bottom: 20mm, left: 15mm, right: 15mm), footer: [
     #h(1fr)
     #set text(size: 9pt, font: __font_sans, weight: 500)
     #context counter(page).display()])
-  set text(font: ("TeX Gyre Heros",) + __font_sans, size: 12pt)
+  set text(font: __font_serif, size: 10pt)
   set par(leading: 0.6em, spacing: 0.6em, justify: true, first-line-indent: 2em)
+  set table(inset: 4pt, stroke: 0.33pt + black.lighten(20%))
+  show table: set par(justify: false)
 
   show heading: it => {
     let dep = it.depth
