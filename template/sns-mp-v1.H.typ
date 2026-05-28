@@ -46,9 +46,10 @@
 
 // Begin template styles
 #let docinit(doc, numbering: false) = [
-  #let fontsize = 10pt
+  // #let fontsize = 10pt
+  #let fontsize = 260pt / 23
   #set text(size: fontsize, font: font_sans1)
-  #set page(width: 300pt, height: 400pt, margin: (left: 20pt, right: 20pt, top: 70pt, bottom: 30pt))
+  #set page(width: 300pt, height: 400pt, margin: (left: 20pt, right: 20pt, top: 70pt, bottom: 40pt))
   #set page(foreground: {
     place(top + center, dy: -1pt, box(
       width: 300pt,
@@ -75,12 +76,21 @@
       #set align(right)
       // #show: upper
       #show: emph
-      #set text(fill: black.lighten(30%), font: font_sans1, size: 9pt, spacing: 110%, tracking: 0.01em, ligatures: false)
-      #box(width:1fr, inset:(bottom:2.5pt), box(width: 100%,height:0.5pt,fill:black.lighten(30%)))
+      #set text(
+        fill: black.lighten(30%),
+        font: font_sans1,
+        size: 9pt,
+        spacing: 110%,
+        tracking: 0.01em,
+        ligatures: false,
+      )
+      #box(width: 1fr, inset: (bottom: 2.5pt), box(width: 100%, height: 0.5pt, fill: black.lighten(30%)))
       The Journal of Unverifiable Discoveries
     ]))
   })
-  #set par(justify: true)
+  #set par(justify: true, leading: 0.9em, spacing: 1.5em)
+
+  // Config options
   #{
     show: if numbering {
       it => {
@@ -88,9 +98,23 @@
         it
       }
     } else { it => it }
+
+    show heading: it => {
+      let intensity = (6 - it.depth)
+      let size = intensity * 1.5pt + 9.5pt
+      set text(
+        size: size,
+      )
+      block(sticky: true, above: 2.5 * size, below: 1 * size)[
+        #it
+      ]
+    }
+
     doc
   }
 ]
+
+
 #let make_title(it, date: none, subtitle: none) = block({
   // v(10pt, weak: false)
   set par(justify: false, leading: 0.52em, spacing: 0.7em)

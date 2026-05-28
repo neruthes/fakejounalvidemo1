@@ -4,7 +4,7 @@
 
 
 
-#let make_title(input_toml) = {
+#let make_title(input_toml, title_override: none) = {
   place(top + center, dy: -8mm, text(
     size: 15pt,
     font: __font_sans,
@@ -24,7 +24,12 @@
     // 1. Article Title
     #block(width: 70%)[
       #set par(justify: false)
-      #text(size: 16pt, weight: 700, font: __font_sans, dataobj.article.title)
+      #let __realTitle = dataobj.article.title
+      #if title_override != none {
+        __realTitle = title_override
+      }
+      #show math.equation.where(block: false): it => box(it)
+      #text(size: 16pt, weight: 700, font: __font_sans, (__realTitle))
     ]
     #v(4mm)
 
